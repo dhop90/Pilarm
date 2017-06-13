@@ -17,11 +17,14 @@
 metadata {
 	definition (name: "Pilarm Zone", namespace: "rcoodey", author: "Ryan Coodey") {
 		capability "Contact Sensor"
-
+        capability "Switch"
         command "zoneEvent"
 	}
 
 	tiles(scale: 2) {
+        standardTile("switch", "device.switch", width:2, height: 2) {
+        	state "unknown", label:'Pilarm', defaultState: true, icon:"st.contact.contact.open", backgroundColor:"#ffa81e"
+        }
         standardTile("contact", "device.contact", width: 2, height: 2) {
         	state("open", label:'Open', icon:"st.contact.contact.open", backgroundColor:"#ffa81e")
 			state("closed", label:'Closed', icon:"st.contact.contact.closed", backgroundColor:"#79b821")
